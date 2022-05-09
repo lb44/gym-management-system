@@ -1,0 +1,58 @@
+{% extends 'user/userbase.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        {% for u in user %}
+        <div class="card ed-card shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h5 class="text-center ed-head">my account</h5>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                {% if u.user_photo == '/static/image/default.png' %}
+                    
+                        <img src="{% static 'image/default.png' %}" class="card-img-top ed-img rounded-circle">
+                    
+                {% else %}
+                        
+                <img src="{{u.user_photo.url}}" alt="" class="card-img-top ed-img rounded-circle">
+                        
+                {% endif %}
+
+
+                
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="card-text ml-5"><b>Name</b></p>
+                        <p class="card-text ml-5"><b>Username</b></p>
+                        <p class="card-text ml-5"><b>Email</b></p>
+                        <p class="card-text ml-5"><b>Address</b></p>
+                        <p class="card-text ml-5"><b>Mobile</b></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="card-text">{{u.user.first_name}} {{u.user.last_name}}</p>
+                        <p class="card-text">{{u.user.username}}</p>
+                        <p class="card-text">{{u.user.email}}</p>
+                        <p class="card-text">{{u.user_address}}</p>
+                        <p class="card-text">{{u.user_mobile}}</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <a href="{% url 'edit_profile' %}" class="btn btn-block btn-dark mt-3 ed-profile">edit profile</a>
+                </div>
+                <div class="row justify-content-center">
+                    <a href="{% url 'my_plan' u.user.id %}" class="btn btn-block btn-secondary mt-3 ed-profile">My Plan</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

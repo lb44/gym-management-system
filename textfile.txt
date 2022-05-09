@@ -1,0 +1,11 @@
+admin:
+
+username:admin
+password:1234
+
+user:
+username: dev
+pasword:123
+
+username:Nandhu
+password:1234

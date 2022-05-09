@@ -1,0 +1,34 @@
+
+  <!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Login Form</title> 
+    <link rel="stylesheet" type="text/css" href="static/css/lo.css">    
+</head>    
+<body>    
+    <h2>USER LOGIN</h2><br>    
+    <div class="login">    
+    <form method="post" action="{% url 'userlogin' %}"> 
+        {% csrf_token %}   
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="uname" id="Uname" placeholder="Username">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="passw" id="Pass" placeholder="Password">    
+        <br><br>    
+        <button type= "submit" class="btn">Login</button>     
+        <br><br>    
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>
+        <a href="{% url 'load_signup_page' %}">dont have an account</a> 
+        <br><br>
+        <center><a href="{% url 'load_index_page' %}">Back to Home</a></center>
+    </form>     
+</div>    
+</body>    
+</html>     

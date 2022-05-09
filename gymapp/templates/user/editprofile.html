@@ -1,0 +1,64 @@
+{% extends 'user/userbase.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container w-50">
+    <form action="" method="post" enctype="multipart/form-data" class="edp-form">
+        <div class="row justify-content-left">
+            <h5 class="sgn mt-3">Update Profile</h5>
+        </div>
+
+        {% csrf_token %} 
+
+        <div class="form-group">
+            <label for="fname">first name</label>
+            <input type="text" class="form-control" value="{{umember.user.first_name}}" id="fname" name="fname">
+        </div>
+        <div class="form-group">
+            <label for="lname">last name</label>
+            <input type="text" class="form-control" value="{{umember.user.last_name}}" name="lname" id="lname">
+        </div>
+        <div class="form-group">
+            <label for="address">address</label>
+            <textarea class="form-control textarea" name="address" rows="3" id="address" style="height: 80px;">{{umember.user_address}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" class="form-control" value="{{umember.user.email}}" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="uname">username</label>
+            <input type="text" class="form-control" value="{{umember.user.username}}" name="uname" id="uname">
+        </div>
+        <div class="form-group">
+            <label for="mobile">mobile</label>
+            <input type="number" class="form-control" value="{{umember.user_mobile}}" name="mobile" id="mobile">
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo</label><br>
+
+
+                {% if umember.user_photo == '/static/image/default.png' %}
+                    
+                <img src="{% static 'image/default.png' %}" class="card-img-top ed-img rounded-circle">
+                    
+                {% else %}
+                        
+                <img src="{{umember.user_photo.url}}" alt="" id="photo" class="w-25">
+                        
+                {% endif %}
+
+            
+            <input type="file" class="form-control-file" accept="image/*"  name="photo">
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="update" class="btn btn-block btn-dark">
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock %}

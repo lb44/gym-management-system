@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col">
+        <div class="card">
+        <h5 class="card-header"><center>SIGNUP</center></h5>
+            <div class="card-body">
+            
+            <p class="card-text">
+                <form action="{% url 'sign_up' %}" method="post" enctype="multipart/form-data" >
+                    
+                    {% csrf_token %} 
+            
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label >First Name</label>
+                          <input type="text" name="fname" class="form-control"  placeholder="First Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Last Name</label>
+                          <input type="text" name="lname" class="form-control" placeholder="Last Name">
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <textarea class="form-control textarea" name="address" rows="3" placeholder="  address" style="height: 80px;"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>Email</label>
+                          <input type="email" class="form-control" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>Username</label>
+                          <input type="text" class="form-control" name="uname" placeholder="Username">
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="passw" placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="cpassw" placeholder="  confirm password">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="male" value="male" name="gender">
+                        <label for="male" class="form-check-label"> Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="female" value="female" name="gender">
+                        <label for="female" class="form-check-label"> Female</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="mobile" placeholder="mobile">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <input type="file" class="form-control-file" accept="image/*" id="photo" name="photo">
+                    </div>
+            
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-info">Signup</button>
+                    </div>
+            <a href="{% url 'load_login_page' %}" class="txt txt-primary">Have You Account..?</a>
+            <br>
+            <a href="{% url 'load_index_page' %}">Back to Home</a>
+        </form>
+            </p>
+            
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+    
+</body>
+</html>

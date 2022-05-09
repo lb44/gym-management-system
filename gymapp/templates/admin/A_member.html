@@ -1,0 +1,74 @@
+{% include 'admin/admin_base.html' %}
+{% load static %}
+{% block main %}
+ <html lang="en" class="no-focus">
+
+ <title>Gym Management System - View Plan</title>
+<link rel="stylesheet" id="css-main" href="{% static 'css1/codebase.min.css' %}">
+ <br><br><br><br>
+	<div class="container card shadow mt-5">
+		<div class="card-body">
+			<h5 class="p-2" style="border-bottom: 2px solid orange">Profile</h5>
+             <br>
+            <div class="container-fluid w-75">
+             
+                <div class="card ed-card shadow">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h5 class="text-center ed-head">Our Member</h5>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <img src="{{user.user_photo.url}}" alt="" class=" w-25 card-img-top ed-img rounded-circle">
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-4">
+                                <p class="card-text ml-5"><b>Name :</b></p>
+                                <p class="card-text ml-5"><b>Gender:</b></p>
+                                <p class="card-text ml-5"><b>Email</b></p>
+                                <p class="card-text ml-5"><b>Address</b></p>
+                                <p class="card-text ml-5"><b>Mobile</b></p>
+                                <p class="card-text ml-5"><b>Plan</b></p>
+                                <p class="card-text ml-5"><b>Duration</b></p>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-4">
+                                <p class="card-text">{{user.user.first_name}} {{user.user.last_name}}</p>
+                                <p class="card-text">{{user.user_gender}}</p>
+                                <p class="card-text">{{user.user.email}}</p>
+                                <p class="card-text">{{user.user_address}}</p>
+                                <p class="card-text">{{user.user_mobile}}</p>
+                                <p class="card-text">{{cntct.plan.name}}</p>
+                                <p class="card-text">{{cntct.plan.duration}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+	</div>
+
+ <!-- Codebase Core JS -->
+        <script src="{% static 'js1/core/jquery.min.js' %}"></script>
+        <script src="{% static 'js1/core/popper.min.js' %}"></script>
+        <script src="{% static 'js1/core/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js1/core/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'js1/core/jquery.scrollLock.min.js' %}"></script>
+        <script src="{% static 'js1/core/jquery.appear.min.js' %}"></script>
+        <script src="{% static 'js1/core/jquery.countTo.min.js' %}"></script>
+        <script src="{% static 'js1/core/js.cookie.min.js' %}"></script>
+        <script src="{% static 'js1/codebase.js' %}"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- Page JS Plugins -->
+        <script src="{% static 'js1/plugins/chartjs/Chart.bundle.min.js' %}"></script>
+
+        <!-- Page JS Code -->
+        <script src="{% static 'js1/pages/be_pages_dashboard.js' %}"></script>
+
+ </html>
+{% endblock %}
